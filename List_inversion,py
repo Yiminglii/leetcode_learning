@@ -1,0 +1,16 @@
+def reverseBetween(ListNode,m,n):
+    node = ListNode
+    exch = in_end = in_head = out_head = out_end = ListNode
+    for i in range(n + 1):
+        if (i == m - 2):
+            out_head = node
+            in_head = node.next
+        node = node.next
+        if (i == n - 2):
+            in_end = node
+            out_end = node.next
+        if (n >= i + 2 >= m):
+            node.next.next = node
+    out_head.next = in_end
+    in_end.next = out_head
+    return head
